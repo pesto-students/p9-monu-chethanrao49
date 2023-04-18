@@ -1,0 +1,27 @@
+#One {
+  position: fixed;
+  width: 100vw;
+  height: 35vh;
+  opacity: 90%;
+  background-size: cover;
+  background-position: center center;
+  background-image: linear-gradient(
+      to right,
+      rgba(86, 81, 184, 0.5) 0%,
+      rgba(35, 104, 119, 0.8) 69%
+    ),
+    url("./assets/HeaderBG.webp");
+
+  filter: blur(1px);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.App > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
