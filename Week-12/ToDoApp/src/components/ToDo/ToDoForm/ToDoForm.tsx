@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { todoItemProps } from "../../global";
-import TodoItem from "./TodoItem";
-import Input from "../common/Input/Input";
-import { dummyData } from "../../data";
+import { todoItemProps } from "../../../global";
+import TodoItem from "../../ToDo/ToDoItem/TodoItem";
+import Input from "../../common/Input/Input";
+import { dummyData } from "../../../data";
 import "./TodoForum.css";
 
 const ToDoForm: React.FC = () => {

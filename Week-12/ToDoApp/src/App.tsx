@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import "./App.css";
-import ToDoForm from "./components/ToDo/ToDoForm";
+import ToDoForm from "./components/ToDo/ToDoForm/ToDoForm";
 import { dummyData } from "./data";
 import { todoItemProps } from "./global";
 import TodoItem from "./components/ToDo/TodoItem";
