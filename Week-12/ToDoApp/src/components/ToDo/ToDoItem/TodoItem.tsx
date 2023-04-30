@@ -11,7 +11,7 @@ const TodoItem: React.FC<todoItemProps> = ({
 }) => {
   return (
     <div className="conatiner">
-      <input type="checkbox" checked={isCompleted} onClick={toggleComplete} />
+      <input type="checkbox" checked={isCompleted} onChange={toggleComplete} />
       <span
         style={{
           textDecoration: isCompleted ? "line-through" : "none",

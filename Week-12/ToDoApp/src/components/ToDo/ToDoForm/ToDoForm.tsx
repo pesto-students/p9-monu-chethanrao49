@@ -13,7 +13,7 @@ const ToDoForm: React.FC = () => {
   const [showAlert, setShowAlert] = useState<boolean>(false);
 
   const addTodo = (todo: string) => {
-    if (todo !== undefined && todo.length > 0) {
+    if (!!todo) {
       setTodos([...todos, { id: uuidv4(), text: todo, isCompleted: false }]);
     } else {
       setShowAlert(true);
@@ -89,21 +89,19 @@ const ToDoForm: React.FC = () => {
         }}
       >
         {showAlert && (
-          <>
-            {showAlert && (
-              <div className="alert">
-                <span className="close" onClick={() => setShowAlert(false)}>
-                  X
-                </span>
-                Please do enter text
-              </div>
-            )}
-          </>
+          <div className="alert">
+            <span className="close" onClick={() => setShowAlert(false)}>
+              X
+            </span>
+            Please do enter text
+          </div>
         )}
+
         {!showAlert &&
           Array.isArray(todos) &&
           todos.map((todo: todoItemProps, idx: number) => (
             <>
+              {/* Use Callback Hooks for improvement */}
               <TodoItem
                 key={todo?.id}
                 text={todo?.text || ""}
