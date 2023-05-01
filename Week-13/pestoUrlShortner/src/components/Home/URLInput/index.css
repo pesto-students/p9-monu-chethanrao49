@@ -1,0 +1,42 @@
+.conatiner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 25vw;
+  right: 2em;
+  width: 55vw;
+  height: 10vh;
+  background-color: #375a647e;
+  border-radius: 1.5em;
+  margin: 2em 0em;
+}
+
+input {
+  height: 5vh;
+  width: 39vw;
+  border: none;
+  border-radius: 0.5em;
+}
+
+button {
+  height: 5vh;
+  width: 10vw;
+  border: none;
+  border-radius: 1em;
+  margin-left: 1em;
+  color: #375a64;
+  padding: 0.3em;
+}
+
+button:hover {
+  height: 5vh;
+  width: 10vw;
+  border: none;
+  border-radius: 1em;
+  margin-left: 1em;
+  color: #ffffff;
+  transform: scale(1.1);
+  background-color: #375a64;
+  cursor: pointer;
+}
