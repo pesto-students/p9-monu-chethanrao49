@@ -1,0 +1,46 @@
+.step-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 32px auto;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 32px;
+  background-color: #fff;
+  max-width: 400px;
+}
+
+.step-counter p {
+  margin-top: 16px;
+  margin-bottom: 32px;
+  font-size: 20px;
+}
+
+.step-counter button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.step-counter button:hover {
+  background-color: #3e8e41;
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.4);
+}
+
+.step-counter button:active {
+  transform: translateY(1px);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
