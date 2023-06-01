@@ -1,0 +1,12 @@
+.container {
+  height: 70vh;
+}
+
+.text-section {
+  margin: 10vh;
+}
+
+.text-section > h2 {
+  font-size: 2em;
+  margin-bottom: 1em;
+}

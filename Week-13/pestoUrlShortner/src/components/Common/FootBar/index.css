@@ -1,0 +1,35 @@
+footer {
+  color: rgb(180, 180, 180);
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 25vh;
+  background-color: rgba(7, 7, 7, 0.869);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5em;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+h3 {
+  color: aliceblue;
+  margin: 0.5em;
+}
+
+p {
+  font-size: 0.8em;
+}
+
+hr {
+  width: 100vw;
+}
