@@ -1,21 +1,49 @@
-# Pesto Assignments
+Personal Finance Manager API
+A TypeScript Express.js REST API for managing personal finances.
 
-Welcome to Pesto assignments.
+Table of Contents
+Requirements
+Installation
+API Routes
+Contributing
+Requirements
+Node.js
+MongoDB
 
+A .env file containing your MongoDB URL and JWT Secret
+Installation
 
-## How to solve assignments
+Clone the repository.
 
-Weekly Assignments will be shared by your mentor or instructor.
+Run npm install in the root directory to install all the dependencies.
 
-Make sure master or main branch is protected and you are not able to push any code directly to master.
+Create a .env file in the root directory and add the following:
+MONGODB_URL=<your-mongodb-url>
+JWT_SECRET=<your-jwt-secret>
+PORT=<desired-port>
+EMAIL_USERNAME=<your-email>
+EMAIL_PASSWORD=<your-email-password>
+Run npm start to start the server.
 
-- Clone this repo to your local.
-- Checkout to new branch for submission. Suggestion you can name new branch week wise - branch for week 1 assignment can be week1
-```bash
-git checkout -b week1
-```
-- Create Assignment week folder in root directory(if it doesn't exist) for eg. for solving week 1 assignment create folder with name "week1".
-- You can create subfolders in main week(week1) folder if required.
-- Add proper readme [(How to Write proper readme](https://meakaakka.medium.com/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3) )in week's folder or subfolder explaining about assignment, how to run assignment and any other instructions. 
-- Raise a PR against master and add your mentor as reviewer
-- Resolve PR comments if any and once your mentor approves your PR, Merge it.
+API Routes
+
+User Routes:
+POST /user/signup: Signup new user.
+POST /user/login: Login user.
+GET /user/assets: Fetch user assets.
+
+Asset Routes:
+POST /asset: Create new asset.
+PUT /asset/:id: Update asset.
+DELETE /asset/:id: Delete asset.
+
+Finance Routes:
+POST /finance: Create finance record.
+PUT /finance/:id: Update finance record.
+GET /finance: Get user finances.
+
+Invoice Routes:
+POST /invoice: Upload an invoice.
+PUT /invoice/:id: Update invoice.
+DELETE /invoice/:id: Delete invoice.
+GET /invoice: Get user invoices.
