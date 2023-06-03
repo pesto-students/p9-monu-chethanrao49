@@ -3,21 +3,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import User from "../models/userModel";
 import Asset from "../models/assetModel";
-
-interface User {
-  _id: string;
-  email: string;
-  password: string;
-}
-
-interface Asset {
-  user: string;
-  assets: number;
-  equity: number;
-  fixedIncome: number;
-  alternatives: number;
-  _id: string;
-}
+import { IAsset, IUser } from "../../global";
 
 // user signup
 export const signup = async (req: Request, res: Response) => {
@@ -38,7 +24,7 @@ export const signup = async (req: Request, res: Response) => {
 export const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   try {
-    const existingUser: User | null = await User.findOne({ email });
+    const existingUser: IUser | null = await User.findOne({ email });
     if (!existingUser)
       return res.status(404).json({ message: "User doesn't exist." });
     const isPasswordCorrect = await bcrypt.compare(
@@ -61,7 +47,7 @@ export const login = async (req: Request, res: Response) => {
 // get user assets
 export const getUserAssets = async (req: Request, res: Response) => {
   const userId = req?.userId;
-  const userAssets: Asset[] = await Asset.find({ user: userId });
+  const userAssets: IAsset[] = await Asset.find({ user: userId });
 
   res.status(200).json(userAssets);
 };

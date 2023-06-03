@@ -1,15 +1,11 @@
 import { Request, Response } from "express";
 import multer, { FileFilterCallback } from "multer";
 import Invoice from "../models/invoiceModel";
+import { IInvoice } from "../../global";
 
 const upload = multer({ dest: "uploads/" });
 
 // Define your Invoice interface here
-interface Invoice {
-  user: string;
-  invoice: Buffer;
-  _id: string;
-}
 
 export const uploadInvoice = async (
   req: Request,
@@ -51,7 +47,7 @@ export const getInvoices = async (
 ): Promise<void> => {
   const { userId } = req.query as { userId: string };
 
-  const invoices: Invoice[] = await Invoice.find({
+  const invoices: IInvoice[] = await Invoice.find({
     user: userId,
   });
 
@@ -64,7 +60,7 @@ export const deleteInvoice = async (
 ): Promise<void> => {
   const { id } = req.params;
 
-  const deletedInvoice: Invoice | null = await Invoice.findByIdAndRemove(id);
+  const deletedInvoice: IInvoice | null = await Invoice.findByIdAndRemove(id);
 
   res.status(200).json(deletedInvoice);
 };
@@ -76,7 +72,7 @@ export const updateInvoice = async (
   const { id } = req.params;
   const invoiceFile = req.file;
 
-  const updatedInvoice: Invoice | null = await Invoice.findByIdAndUpdate(
+  const updatedInvoice: IInvoice | null = await Invoice.findByIdAndUpdate(
     id,
     { invoice: invoiceFile?.buffer },
     { new: true }

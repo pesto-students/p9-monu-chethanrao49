@@ -2,22 +2,7 @@ import { Request, Response } from "express";
 import Finance from "../models/financeModel";
 import User from "../models/userModel";
 import sendEmail from "../services/emailService";
-
-// You will need to replace these with your actual model types
-interface Finance {
-  user: string;
-  income: number;
-  expenses: number;
-  savings: number;
-  month: number;
-  year: number;
-}
-
-interface User {
-  email: string;
-  _id: string;
-  // Add the rest of the fields according to your schema
-}
+import { IFinance, IUser } from "../../global";
 
 export const getUserFinances = async (
   req: Request,
@@ -29,7 +14,7 @@ export const getUserFinances = async (
     month: number;
   };
 
-  const userFinances: Finance[] = await Finance.find({
+  const userFinances: IFinance[] = await Finance.find({
     user: userId,
     year: year || { $exists: true },
     month: month || { $exists: true },
@@ -45,7 +30,7 @@ export const updateFinance = async (
   const { id } = req.params;
   const { income, expenses, savings } = req.body;
 
-  const updatedFinance: Finance | null = await Finance.findByIdAndUpdate(
+  const updatedFinance: IFinance | null = await Finance.findByIdAndUpdate(
     id,
     { income, expenses, savings },
     { new: true }
@@ -53,7 +38,7 @@ export const updateFinance = async (
 
   // Send email notification
   if (updatedFinance) {
-    const user: User | null = await User.findById(updatedFinance.user);
+    const user: IUser | null = await User.findById(updatedFinance.user);
     if (user)
       sendEmail(
         user.email,
@@ -83,7 +68,7 @@ export const createFinance = async (
   await newFinance.save();
 
   // Send email notification
-  const user: User | null = await User.findById(userId);
+  const user: IUser | null = await User.findById(userId);
 
   if (user)
     sendEmail(
